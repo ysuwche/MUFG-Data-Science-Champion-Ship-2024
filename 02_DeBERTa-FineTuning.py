@@ -95,3 +95,5 @@ with torch.no_grad():
         inputs = {k: v.to('cuda') for k, v in batch.items()}
         outputs = model(**inputs)
         test_features.append(outputs.logits.cpu().numpy())
+
+test_features = np.concatenate(test_features, axis=0)
